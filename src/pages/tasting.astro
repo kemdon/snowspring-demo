@@ -1,0 +1,96 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="品鉴雪泉" description="雪泉天然矿泉水的水质、矿物构成与品鉴指南（演示站）">
+  <section class="page-hero">
+    <img src="/images/source-spring.webp" alt="" />
+    <div class="shade"></div>
+    <div class="container hero-text">
+      <p class="eyebrow">品鉴雪泉</p>
+      <h1>读懂一杯水</h1>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2 class="h2">水源与水质</h2>
+      <p class="lead">
+        雪泉取自高山冰川融雪，经数十年天然岩层过滤与矿化，形成低矿化度、天然弱碱的清冽水质。
+        以下为典型水质指标（演示数据，仅作页面结构示意）。
+      </p>
+      <div class="table-wrap">
+        <table>
+          <tr><th>指标</th><th>典型值</th><th>说明</th></tr>
+          <tr><td>pH 值</td><td>7.8 ± 0.3</td><td>天然弱碱性，入口柔和</td></tr>
+          <tr><td>矿化度</td><td>180–260 mg/L</td><td>低矿化度，日常饮用友好</td></tr>
+          <tr><td>钙</td><td>≤ 40 mg/L</td><td>清冽不涩</td></tr>
+          <tr><td>镁</td><td>≤ 12 mg/L</td><td>回甘来源之一</td></tr>
+          <tr><td>偏硅酸</td><td>25–45 mg/L</td><td>天然硅源</td></tr>
+        </table>
+      </div>
+      <p class="note">* 以上为演示站点占位数据，不代表任何真实产品检测结果。</p>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container narrow">
+      <h2 class="h2">如何品鉴一瓶好水</h2>
+      <ol class="steps">
+        <li>
+          <strong>观</strong>
+          <p>对着光看，好水清亮通透，无悬浮物与异味色泽。</p>
+        </li>
+        <li>
+          <strong>闻</strong>
+          <p>优质矿泉水无余氯味、无塑料味，开瓶只有干净的金属或矿物气息。</p>
+        </li>
+        <li>
+          <strong>尝</strong>
+          <p>小口含漱后咽下，感受入口的顺滑度、矿物的轻微厚重感与回甘长短。</p>
+        </li>
+        <li>
+          <strong>配</strong>
+          <p>低矿化度配清淡菜肴，中矿化度配红肉与奶酪，中和油腻、放大风味。</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section cta-band">
+    <div class="container cta-row">
+      <h2 class="h2">从今天开始，好好喝水</h2>
+      <a class="btn" href="/order/">我要订水</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-hero { position: relative; min-height: 46vh; display: flex; align-items: flex-end; overflow: hidden; }
+  .page-hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .shade { position: absolute; inset: 0; background: linear-gradient(to top, rgba(9,20,28,0.55), rgba(9,20,28,0.05)); }
+  .hero-text { position: relative; z-index: 1; color: #fff; padding-bottom: 40px; }
+  .hero-text h1 { font-size: clamp(30px, 4vw, 48px); margin: 6px 0 0; letter-spacing: 0.12em; }
+  .page-hero .eyebrow { color: rgba(255,255,255,0.85); }
+
+  .narrow { max-width: 760px; }
+  .table-wrap { overflow-x: auto; margin: 8px 0 6px; }
+  table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 14px; overflow: hidden; box-shadow: var(--shadow); }
+  th, td { padding: 14px 18px; text-align: left; font-size: 15px; }
+  th { background: var(--ice); color: var(--deep); font-weight: 600; width: 32%; }
+  tr + tr td, tr + tr th { border-top: 1px solid var(--line); }
+  td { color: #33424d; }
+  .note { font-size: 12.5px; color: var(--muted, #5b6b77); margin-top: 12px; }
+
+  .alt { background: var(--snow); }
+  .steps { list-style: none; margin: 28px 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 22px; counter-reset: step; }
+  .steps li { background: #fff; border-radius: 14px; padding: 22px 24px; box-shadow: var(--shadow); counter-increment: step; }
+  .steps li::before { content: '0' counter(step); font-size: 12px; letter-spacing: 0.3em; color: var(--glacier); font-weight: 700; display: block; margin-bottom: 8px; }
+  .steps strong { display: block; font-size: 17px; margin-bottom: 6px; }
+  .steps p { margin: 0; font-size: 14px; line-height: 1.85; color: #5b6b77; }
+  @media (max-width: 720px) { .steps { grid-template-columns: 1fr; } }
+
+  .cta-band { background: linear-gradient(135deg, var(--deep), #14344a); color: #fff; }
+  .cta-row { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+  .cta-row .btn { background: #fff; color: var(--deep); text-decoration: none; }
+</style>

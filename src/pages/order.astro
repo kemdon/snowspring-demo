@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="我要订水" description="雪泉订水方式：家庭订阅、企业用水与餐饮合作（演示站）">
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">我要订水</p>
+      <h1>把雪山带回家</h1>
+      <p class="hero-sub">演示站点 · 表单不含真实提交功能</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid">
+      <div class="plans">
+        <h2 class="h2">订水方式</h2>
+        <div class="plan">
+          <h3>家庭订阅</h3>
+          <p>月度/季度定期配送，一次订阅，雪山送到家。</p>
+          <p class="plan-tag">演示方案 A</p>
+        </div>
+        <div class="plan">
+          <h3>企业用水</h3>
+          <p>办公室桶装水+瓶装水组合，月结，专属客服。</p>
+          <p class="plan-tag">演示方案 B</p>
+        </div>
+        <div class="plan">
+          <h3>餐饮合作</h3>
+          <p>为餐厅、酒店、茶室提供玻璃瓶装与定制标签。</p>
+          <p class="plan-tag">演示方案 C</p>
+        </div>
+      </div>
+
+      <form class="order-form" method="get" action="/">
+        <label>姓名 / 联系人<input type="text" name="name" placeholder="怎么称呼您" /></label>
+        <label>联系电话<input type="tel" name="phone" placeholder="方便联系的手机号" /></label>
+        <label>订水类型
+          <select name="type">
+            <option>家庭订阅</option>
+            <option>企业用水</option>
+            <option>餐饮合作</option>
+          </select>
+        </label>
+        <label>备注<textarea name="note" rows="4" placeholder="数量、地址、期望配送时间等"></textarea></label>
+        <button class="btn" type="submit">提交订水意向</button>
+        <p class="form-note">演示站点：表单不做真实提交，也不收集任何信息。</p>
+      </form>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-hero { background: linear-gradient(150deg, var(--deep), #1c4258); color: #fff; padding: clamp(72px, 10vw, 120px) 0 clamp(48px, 6vw, 72px); }
+  .page-hero .container { width: min(1180px, calc(100% - 48px)); margin-inline: auto; }
+  .page-hero .eyebrow { font-size: 13px; letter-spacing: 0.45em; color: var(--mist); margin: 0 0 12px; }
+  .page-hero h1 { font-size: clamp(30px, 4vw, 46px); margin: 0 0 12px; letter-spacing: 0.1em; }
+  .hero-sub { color: rgba(255,255,255,0.65); font-size: 14px; margin: 0; }
+  .section { padding: clamp(56px, 7vw, 96px) 0; }
+  .container { width: min(1180px, calc(100% - 48px)); margin-inline: auto; }
+  .grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(32px, 5vw, 72px); align-items: start; }
+  .h2 { font-size: clamp(24px, 3vw, 34px); margin: 0 0 20px; }
+  .plans { display: flex; flex-direction: column; gap: 18px; margin-bottom: 30px; }
+  .plan { background: #fff; border-radius: 14px; padding: 22px 24px; box-shadow: var(--shadow); }
+  .plan h3 { margin: 0 0 8px; font-size: 17px; }
+  .plan p { margin: 0; font-size: 14px; line-height: 1.8; color: #5b6b77; }
+  .plan-tag { margin-top: 10px !important; font-size: 12px; color: var(--glacier); letter-spacing: 0.1em; }
+  .order-form { background: #fff; border-radius: 16px; padding: 28px; box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 16px; }
+  .order-form label { display: flex; flex-direction: column; gap: 8px; font-size: 14px; font-weight: 600; }
+  .order-form input, .order-form select, .order-form textarea {
+    padding: 11px 14px; border: 1px solid var(--line); border-radius: 10px;
+    font: inherit; font-weight: 400; background: var(--snow);
+  }
+  .order-form input:focus, .order-form select:focus, .order-form textarea:focus { outline: 2px solid var(--glacier); border-color: var(--glacier); }
+  .btn { padding: 13px; border: 0; border-radius: 999px; background: var(--glacier); color: #fff; font: inherit; font-weight: 600; cursor: pointer; }
+  .btn:hover { background: var(--glacier-deep); }
+  .form-note { margin: 0; font-size: 12px; color: var(--muted, #5b6b77); }
+  @media (max-width: 860px) { .grid { grid-template-columns: 1fr; } }
+</style>

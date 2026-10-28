@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const news = [
+  {
+    date: '2026-10-18',
+    title: '雪泉水源地获评省级水源保护示范区',
+    body: '水源地完成生态保护升级改造，可持续取水管理与水质在线监测体系通过验收，为长期稳定供水再添保障。（演示内容）',
+  },
+  {
+    date: '2026-09-30',
+    title: '全新「雪屿」玻璃瓶系列上市',
+    body: '面向高端餐饮与酒店场景的可回收玻璃瓶装线正式发布，瓶身设计以「雪山之棱」为灵感。（演示内容）',
+  },
+  {
+    date: '2026-09-02',
+    title: '雪泉携手城市马拉松，为三万名跑者补水',
+    body: '全程补给站采用可循环桶装直供与可降解纸杯，践行低碳赛事理念。（演示内容）',
+  },
+  {
+    date: '2026-08-15',
+    title: '雪泉天然弱碱水通过年度第三方全项检测',
+    body: '理化和微生物指标全部符合饮用天然矿泉水国家标准（演示内容，数据为占位）。',
+  },
+];
+---
+
+<BaseLayout title="新闻资讯" description="雪泉品牌动态与新闻（演示站）">
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">新闻资讯</p>
+      <h1>雪泉动态</h1>
+      <p class="hero-sub">演示站点 · 以下新闻均为设计示范内容</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="news-list">
+        {news.map((n) => (
+          <article class="news-item">
+            <p class="date">{n.date}</p>
+            <h2>{n.title}</h2>
+            <p class="body">{n.body}</p>
+            <span class="more">阅读全文（演示）→</span>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-hero { background: linear-gradient(150deg, var(--deep), #1c4258); color: #fff; padding: clamp(72px, 10vw, 120px) 0 clamp(48px, 6vw, 72px); }
+  .page-hero .container { width: min(1180px, calc(100% - 48px)); margin-inline: auto; }
+  .page-hero .eyebrow { font-size: 13px; letter-spacing: 0.45em; color: var(--mist); margin: 0 0 12px; }
+  .page-hero h1 { font-size: clamp(30px, 4vw, 46px); margin: 0 0 12px; letter-spacing: 0.1em; }
+  .hero-sub { color: rgba(255,255,255,0.65); font-size: 14px; margin: 0; }
+  .section { padding: clamp(56px, 7vw, 96px) 0; }
+  .container { width: min(860px, calc(100% - 48px)); margin-inline: auto; }
+  .news-list { display: flex; flex-direction: column; gap: 26px; }
+  .news-item { background: #fff; border-radius: 16px; padding: 30px 32px; box-shadow: var(--shadow); }
+  .date { font-size: 12.5px; color: var(--glacier); letter-spacing: 0.18em; margin: 0 0 10px; }
+  .news-item h2 { font-size: 19px; margin: 0 0 12px; line-height: 1.6; }
+  .body { margin: 0 0 14px; font-size: 14.5px; line-height: 1.9; color: #5b6b77; }
+  .more { font-size: 13.5px; color: var(--glacier); }
+</style>
